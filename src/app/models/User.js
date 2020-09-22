@@ -24,6 +24,11 @@ class User extends Model {
 
     return this;
   }
+
+  checkPassword(password) {
+    // O sequelize consegue ver se existe a senha do DB somente usando o password_hash
+    return bcrypt.compare(password, this.password_hash);
+  }
 }
 
 export default User;
