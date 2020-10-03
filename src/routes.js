@@ -11,10 +11,12 @@ const routes = new Router();
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionsController.store);
 
-routes.post('/recipient', RecipientController.store);
-routes.put('/recipient', RecipientController.update);
-
 routes.use(authMiddleware);
 routes.put('/users:id', UserController.update);
+
+routes.get('/recipient', RecipientController.index);
+routes.post('/recipient', RecipientController.store);
+routes.put('/recipient/:id', RecipientController.update);
+routes.delete('/recipient/:id', RecipientController.delete);
 
 export default routes;
